@@ -1073,209 +1073,231 @@
     </footer>
 
     <script>
-        // Language translations
-        const translations = {
-            en: {
-                'name': 'Portfolio',
-                'nav-home': 'Home',
-                'nav-about': 'About',
-                'nav-projects': 'Projects',
-                'nav-skills': 'Skills',
-                'nav-contact': 'Contact',
-                'hero-title': 'Yann Sela Developer',
-                'hero-subtitle': 'Full Stack Developer',
-                'hero-description': 'Building modern web applications with passion and precision. Specialized in creating seamless user experiences and robust backend systems.',
-                'hero-cta': 'Get In Touch',
-                'about-title': 'About Me',
-                'about-p1': "Hello! I'm a passionate full-stack developer with over 2 years of experience in building web applications. I specialize in modern JavaScript frameworks and creating scalable solutions.",
-                'about-p2': "I love turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through blog posts and tutorials.",
-                'about-p3': "My goal is to build products that provide pixel-perfect, performant experiences and make a positive impact on users' lives.",
-                'projects-title': 'Featured Projects',
-                'project1-title': 'E-Commerce Platform',
-                'project1-desc': 'A fully responsive online shopping platform with real-time inventory management and secure payment integration.',
-                'project2-title': 'Task Management App',
-                'project2-desc': 'Collaborative project management tool with real-time updates, team collaboration features, and analytics dashboard.',
-                'project3-title': 'Social Network',
-                'project3-desc': 'A social networking platform with user profiles, posts, comments, and real-time messaging capabilities.',
-                'skills-title': 'Skills & Technologies',
-                'skills-frontend': 'Frontend Development',
-                'skills-backend': 'Backend Development',
-                'skills-database': 'Database & Tools',
-                'contact-title': 'Get In Touch',
-                'contact-info-title': 'Contact Information',
-                'info-email-label': 'Email',
-                'info-phone-label': 'Phone',
-                'info-location-label': 'Location',
-                'info-location-value': 'Phnom Penh, Cambodia',
-                'info-availability-label': 'Availability',
-                'info-availability-value': 'Available for freelance work',
-                'social-title': 'Follow Me',
-                'form-name': 'Name',
-                'form-email': 'Email',
-                'form-message': 'Message',
-                'form-submit': 'Send Message',
-                'info-item': 'Phnom Penh, KH',
-                'footer-text': '© 2025 Kon Khmer Developer. All rights reserved.'
-            },
-            km: {
-                'name': 'Portfolio',
-                'nav-home': 'ទំព័រដើម',
-                'nav-about': 'អំពីខ្ញុំ',
-                'nav-projects': 'គម្រោង',
-                'nav-skills': 'ជំនាញ',
-                'nav-contact': 'ទំនាក់ទំនង',
-                'hero-title': 'Kon Khmer Developer',
-                'hero-subtitle': 'Full Stack Developer',
-                'hero-description': 'បង្កើតកម្មវិធីគេហទំព័រទំនើបដោយទំនុកចិត្ត និងភាពជាក់លាក់។ ឯកទេសក្នុងការបង្កើតនិងមានបទពិសោធន៍អ្នកប្រើប្រាស់គ្មានដែនកំណត់ ។',
-                'hero-cta': 'ទាក់ទងមកខ្ញុំ',
-                'about-title': 'អំពីខ្ញុំ',
-                'about-p1': 'សួស្តី! ខ្ញុំជា Full Stack Developer ជាមួយបទពិសោធន៍ជាង ២ ឆ្នាំក្នុងការបង្កើតកម្មវិធីគេហទំព័រ។ ខ្ញុំឯកទេសក្នុង JavaScript និងការបង្កើតដំណោះស្រាយដែលអាចពង្រីកបាន។',
-                'about-p2': 'ខ្ញុំចូលចិត្តប្រែក្លាយបញ្ហាស្មុគស្មាញទៅជាការរចនាសាមញ្ញ ស្អាត និងចលនាភាព។ នៅពេលអ្នកសរសេរកូដ អ្នកនឹងរកឃើញខ្ញុំកំពុងស្វែងរកបច្ចេកវិទ្យាថ្មី ចូលរួមចំណែកដល់គម្រោងប្រភពបើកចំហ ឬចែករំលែកចំណេះដឹងរបស់ខ្ញុំតាមរយៈការបង្ហាញ និងការបង្រៀន។',
-                'about-p3': 'គោលដៅរបស់ខ្ញុំគឺបង្កើតគេហទំព័រដែលល្អ មានប្រសិទ្ធភាព និងធ្វើឱ្យមានផលល្អដល់ជីវិតអ្នកប្រើប្រាស់។',
-                'projects-title': 'គម្រោងពិសេស',
-                'project1-title': 'វេទិកាពាណិជ្ជកម្មអេឡិចត្រូនិក',
-                'project1-desc': 'វេទិកាទិញទំនិញអនឡាញដែលឆ្លើយតបពេញលេញជាមួយការគ្រប់គ្រងពេលវេលាជាក់ស្តែង និងការរួមបញ្ចូប្បន្នភាពពេលវេលារបស់អ្នក។',
-                'project2-title': 'កម្មវិធីគ្រប់គ្រងភារកិច្ច',
-                'project2-desc': 'ឧបករណ៍គ្រប់គ្រងគម្រោងសហការជាមួយការធ្វើបច្ចុប្បន្នភាពពេលវេលារបស់អ្នក មុខងារសហការក្រុម និងផ្ទាំងព័ត៌មានវិភាគ។',
-                'project3-title': 'បណ្តាញសង្គម',
-                'project3-desc': 'វេទិកាបណ្តាញសង្គមជាមួយប្រវត្តិរូបអ្នកប្រើប្រាស់ ការបង្ហោះ មតិយោបល់ និងសមត្ថភាពផ្ញើសារពេលវេលារបស់អ្នក។',
-                'skills-title': 'ជំនាញ និងបច្ចេកវិទ្យា',
-                'skills-frontend': 'ការអភិវឌ្ឍន៍ផ្នែកខាងមុខ',
-                'skills-backend': 'ការអភិវឌ្ឍន៍ផ្នែកខាងក្រោយ',
-                'skills-database': 'មូលដ្ឋានទិន្នន័យ និងឧបករណ៍',
-                'contact-title': 'ទាក់ទងមកខ្ញុំ',
-                'contact-info-title': 'ព័ត៌មានទំនាក់ទំនង',
-                'info-email-label': 'អ៊ីមែល',
-                'info-phone-label': 'លេខទូរសព្ទ',
-                'info-location-label': 'ទីតាំង',
-                'info-location-value': 'ភ្នំពេញ, កម្ពុជា',
-                'info-availability-label': 'ភាពអាចរកបាន',
-                'info-availability-value': 'អាចធ្វើការផ្ទាល់ខ្លួន',
-                'social-title': 'តាមដានខ្ញុំ',
-                'form-name': 'ឈ្មោះ',
-                'form-email': 'អ៊ីមែល',
-                'form-message': 'សារ',
-                'form-submit': 'ផ្ញើសារ',
-                'info-item': 'ភ្នំពេញ, កម្ពុជា',
-                'footer-text': '© ២០២៥ ធ្វើឡើងដោយកូនខ្មែរ។ រក្សាសិទ្ធិគ្រប់យ៉ាង។'
-            }
-        };
+       // Language translations
+const translations = {
+  en: {
+    name: "Portfolio",
+    "nav-home": "Home",
+    "nav-about": "About",
+    "nav-projects": "Projects",
+    "nav-skills": "Skills",
+    "nav-contact": "Contact",
+    "hero-title": "Yann Sela Developer",
+    "hero-subtitle": "Full Stack Developer",
+    "hero-description":
+      "Building modern web applications with passion and precision. Specialized in creating seamless user experiences and robust backend systems.",
+    "hero-cta": "Get In Touch",
+    "about-title": "About Me",
+    "about-p1":
+      "Hello! I'm a passionate full-stack developer with over 2 years of experience in building web applications. I specialize in modern JavaScript frameworks and creating scalable solutions.",
+    "about-p2":
+      "I love turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through blog posts and tutorials.",
+    "about-p3":
+      "My goal is to build products that provide pixel-perfect, performant experiences and make a positive impact on users' lives.",
+    "projects-title": "Featured Projects",
+    "project1-title": "E-Commerce Platform",
+    "project1-desc":
+      "A fully responsive online shopping platform with real-time inventory management and secure payment integration.",
+    "project2-title": "Task Management App",
+    "project2-desc":
+      "Collaborative project management tool with real-time updates, team collaboration features, and analytics dashboard.",
+    "project3-title": "Social Network",
+    "project3-desc":
+      "A social networking platform with user profiles, posts, comments, and real-time messaging capabilities.",
+    "skills-title": "Skills & Technologies",
+    "skills-frontend": "Frontend Development",
+    "skills-backend": "Backend Development",
+    "skills-database": "Database & Tools",
+    "contact-title": "Get In Touch",
+    "contact-info-title": "Contact Information",
+    "info-email-label": "Email",
+    "info-phone-label": "Phone",
+    "info-location-label": "Location",
+    "info-location-value": "Phnom Penh, Cambodia",
+    "info-availability-label": "Availability",
+    "info-availability-value": "Available for freelance work",
+    "social-title": "Follow Me",
+    "form-name": "Name",
+    "form-email": "Email",
+    "form-message": "Message",
+    "form-submit": "Send Message",
+    "info-item": "Phnom Penh, KH",
+    "footer-text": "© 2025 Kon Khmer Developer. All rights reserved.",
+  },
+  km: {
+    name: "Portfolio",
+    "nav-home": "ទំព័រដើម",
+    "nav-about": "អំពីខ្ញុំ",
+    "nav-projects": "គម្រោង",
+    "nav-skills": "ជំនាញ",
+    "nav-contact": "ទំនាក់ទំនង",
+    "hero-title": "Kon Khmer Developer",
+    "hero-subtitle": "Full Stack Developer",
+    "hero-description": "បង្កើតកម្មវិធីគេហទំព័រទំនើបដោយទំនុកចិត្ត និងភាពជាក់លាក់។ ឯកទេសក្នុងការបង្កើតនិងមានបទពិសោធន៍អ្នកប្រើប្រាស់គ្មានដែនកំណត់ ។",
+    "hero-cta": "ទាក់ទងមកខ្ញុំ",
+    "about-title": "អំពីខ្ញុំ",
+    "about-p1":
+      "សួស្តី! ខ្ញុំជា Full Stack Developer ជាមួយបទពិសោធន៍ជាង ២ ឆ្នាំក្នុងការបង្កើតកម្មវិធីគេហទំព័រ។ ខ្ញុំឯកទេសក្នុង JavaScript និងការបង្កើតដំណោះស្រាយដែលអាចពង្រីកបាន។",
+    "about-p2":
+      "ខ្ញុំចូលចិត្តប្រែក្លាយបញ្ហាស្មុគស្មាញទៅជាការរចនាសាមញ្ញ ស្អាត និងចលនាភាព។ នៅពេលអ្នកសរសេរកូដ អ្នកនឹងរកឃើញខ្ញុំកំពុងស្វែងរកបច្ចេកវិទ្យាថ្មី ចូលរួមចំណែកដល់គម្រោងប្រភពបើកចំហ ឬចែករំលែកចំណេះដឹងរបស់ខ្ញុំតាមរយៈការបង្ហាញ និងការបង្រៀន។",
+    "about-p3": "គោលដៅរបស់ខ្ញុំគឺបង្កើតគេហទំព័របែងែងមានប្រសិទ្ធភាព និងធ្វើឱ្យមានផលល្អដល់ជីវិតអ្នកប្រើប្រាស់។",
+    "projects-title": "គម្រោងពិសេស",
+    "project1-title": "វេទិកាពាណិជ្ជកម្មអេឡិចត្រូនិក",
+    "project1-desc": "វេទិកាទិញទំនិញអនឡាញដែលឆ្លើយតបពេញលេញជាមួយការគ្រប់គ្រងពេលវេលាជាក់ស្តែង។",
+    "project2-title": "កម្មវិធីគ្រប់គ្រងភារកិច្ច",
+    "project2-desc": "ឧបករណ៍គ្រប់គ្រងគម្រោងសហការជាមួយការធ្វើបច្ចុប្បន្នភាពពេលវេលា និងផ្ទាំងព័ត៌មានវិភាគ។",
+    "project3-title": "បណ្តាញសង្គម",
+    "project3-desc": "វេទិកាបណ្តាញសង្គមជាមួយប្រវត្តិរូបអ្នកប្រើប្រាស់ ការបង្ហោះ និងសមត្ថភាពផ្ញើសារ។",
+    "skills-title": "ជំនាញ និងបច្ចេកវិទ្យា",
+    "skills-frontend": "ការអភិវឌ្ឍន៍ផ្នែកខាងមុខ",
+    "skills-backend": "ការអភិវឌ្ឍន៍ផ្នែកខាងក្រោយ",
+    "skills-database": "មូលដ្ឋានទិន្នន័យ និងឧបករណ៍",
+    "contact-title": "ទាក់ទងមកខ្ញុំ",
+    "contact-info-title": "ព័ត៌មានលម្អិតទាក់ទង",
+    "info-email-label": "អ៊ីមែល",
+    "info-phone-label": "ទូរស័ព្ទ",
+    "info-location-label": "ទីតាំង",
+    "info-location-value": "ភ្នំពេញ ប្រទេសកម្ពុជា",
+    "info-availability-label": "ភាពអាចរកបាន",
+    "info-availability-value": "ដើម្បីធ្វើការឯករាជ្យ",
+    "social-title": "ធ្វើតាមខ្ញុំ",
+    "form-name": "ឈ្មោះ",
+    "form-email": "អ៊ីមែល",
+    "form-message": "សារ",
+    "form-submit": "ផ្ញើសារ",
+    "footer-text": "© 2025 Kon Khmer Developer. រក្សាសិទ្ធិលក្ខណ៍។",
+  },
+}
 
-        let currentLang = 'en';
-        const langBtn = document.getElementById('langBtn');
+let currentLanguage = localStorage.getItem("language") || "en"
 
-        function changeLanguage() {
-            currentLang = currentLang === 'en' ? 'km' : 'en';
-            langBtn.textContent = currentLang === 'en' ? 'KH' : 'EN';
-            
-            document.querySelectorAll('[data-lang]').forEach(element => {
-                const key = element.getAttribute('data-lang');
-                element.textContent = translations[currentLang][key];
-            });
-        }
+// Theme toggle
+const themeToggle = document.getElementById("themeToggle")
+const body = document.body
+const savedTheme = localStorage.getItem("theme") || "light"
 
-        langBtn.addEventListener('click', changeLanguage);
+if (savedTheme === "dark") {
+  body.classList.add("dark-mode")
+  themeToggle.textContent = "☀️"
+}
 
-        // Dark mode toggle
-        const themeToggle = document.getElementById('themeToggle');
-        let isDarkMode = false;
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode")
+  const isDarkMode = body.classList.contains("dark-mode")
+  localStorage.setItem("theme", isDarkMode ? "dark" : "light")
+  themeToggle.textContent = isDarkMode ? "☀️" : "🌙"
+})
 
-        if (localStorage.getItem('theme') === 'dark') {
-            isDarkMode = true;
-            document.body.classList.add('dark-mode');
-            themeToggle.textContent = '☀️';
-        }
+// Language toggle
+const langBtn = document.getElementById("langBtn")
 
-        themeToggle.addEventListener('click', () => {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('dark-mode');
-            themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-        });
+langBtn.addEventListener("click", () => {
+  currentLanguage = currentLanguage === "en" ? "km" : "en"
+  localStorage.setItem("language", currentLanguage)
+  updateLanguage()
+  langBtn.textContent = currentLanguage === "en" ? "KH" : "EN"
+})
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+// Update language on page load
+window.addEventListener("load", () => {
+  langBtn.textContent = currentLanguage === "en" ? "KH" : "EN"
+  updateLanguage()
+})
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+function updateLanguage() {
+  document.querySelectorAll("[data-lang]").forEach((element) => {
+    const key = element.getAttribute("data-lang")
+    if (translations[currentLanguage][key]) {
+      element.textContent = translations[currentLanguage][key]
+    }
+  })
+}
 
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
-            observer.observe(el);
-        });
+// Navbar scroll effect
+const navbar = document.getElementById("navbar")
 
-        const navbar = document.getElementById('navbar');
-        let lastScroll = 0;
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled")
+  } else {
+    navbar.classList.remove("scrolled")
+  }
+})
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            lastScroll = currentScroll;
-        });
+// Smooth scroll for navigation links
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault()
+    const targetId = link.getAttribute("href").substring(1)
+    const targetSection = document.getElementById(targetId)
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" })
+    }
+  })
+})
 
-         // Counter Animation
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-count'));
-            const duration = 2500;
-            const step = target / (duration / 16);
-            let current = 0;
+// Scroll reveal animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -100px 0px",
+}
 
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    element.textContent = target + '+';
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current);
-                }
-            }, 16);
-        }
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible")
+    }
+  })
+}, observerOptions)
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+document.querySelectorAll(".fade-in, .slide-in-left, .slide-in-right, .scale-in").forEach((element) => {
+  observer.observe(element)
+})
 
-        // Form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            const formMessage = currentLang === 'en' 
-                ? 'Thank you for your message! I will get back to you soon.' 
-                : 'សូមអរគុណសម្រាប់សាររបស់អ្នក! ខ្ញុំនឹងឆ្លើយតបទៅអ្នកក្នុងពេលឆាប់ៗនេះ។';
-            alert(formMessage);
-            event.target.reset();
-        }
+// Contact form submission
+function handleSubmit(event) {
+  event.preventDefault()
+
+  const name = document.getElementById("name").value
+  const email = document.getElementById("email").value
+  const message = document.getElementById("message").value
+
+  if (name && email && message) {
+    console.log("Form submitted:", { name, email, message })
+    alert("Thank you for your message! I will get back to you soon.")
+    event.target.reset()
+  } else {
+    alert("Please fill in all fields.")
+  }
+}
+
+// Mobile hamburger menu toggle functionality
+const menuToggle = document.getElementById("menuToggle")
+const navLinks = document.getElementById("navLinks")
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active")
+    navLinks.classList.toggle("active")
+  })
+
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("active")
+      navLinks.classList.remove("active")
+    })
+  })
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("nav")) {
+      menuToggle.classList.remove("active")
+      navLinks.classList.remove("active")
+    }
+  })
+}
     </script>
 </body>
 </html>
